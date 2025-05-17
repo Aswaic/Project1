@@ -92,15 +92,15 @@ A web UI was built using Streamlit for demo and exploration:
 
 ## 🧾 Files for Submission
 
-| Filename                                | Description                         |
-|----------------------------------------|-------------------------------------|
-| `hybrid_coldtuned_025_025_050.csv`     | Best submission (MAP@10 = 0.1516) |
-| `Library_recommendation_project.ipynb` | The notebook to run everything that has been done |
-| `candidate_pairs.csv` | Top 50 book candidates per user for reranking |
-| `items.csv` | Book metadata (title, author, subject, publisher, ISBN) [Given as a database] |
-| `items_augmented.csv` | Enriched metadata using the Google Books API |
-| `cf_scores.npy`, `tfidf_scores.npy`, `bert_scores.npy` | Precomputed similarity scores [With changes over time for bert_scores.npy] |
-| 'sample_submission.csv' | Sample of user IDs to give our recommendation and be tested on Kaggle |
+| File                             | Description                                                                 |
+|----------------------------------|-----------------------------------------------------------------------------|
+| `hybrid_coldtuned_025_025_050.csv` | Best submission (MAP@10 = 0.1516)                                           |
+| `Library_recommendation_project.ipynb` | The notebook to run everything that has been done                         |
+| `candidate_pairs.csv`           | Top 50 book candidates per user for reranking                              |
+| `items.csv`                     | Book metadata (title, author, subject, publisher, ISBN) [Given as a database] |
+| `items_augmented.csv`          | Enriched metadata using the Google Books API                                |
+| `cf_scores.npy`, `tfidf_scores.npy`, `bert_scores.npy` | Precomputed similarity scores *(BERT scores updated over time)*  |
+| `sample_submission.csv`        | Sample of user IDs to generate recommendation submissions for Kaggle        |
 
 ---
 
