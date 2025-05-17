@@ -12,14 +12,14 @@ Our objective was to build a personalized recommendation system that suggests bo
 
 ## Project Structure
 
-- `interactions_train.csv`: User-book interaction data
-- `items.csv`: Book metadata (title, author, subject, publisher, ISBN) [Given as a database]
-- `items_augmented.csv`: Enriched metadata using the Google Books API
-- `cf_scores.npy`, `tfidf_scores.npy`, `bert_scores.npy`: Precomputed similarity scores [With changes over time for bert_scores.npy]
-- `candidate_pairs.csv`: Top 50 book candidates per user for reranking
-- `xgb_cold_*.json`: Cold-start XGBoost models with tuned hyperparameters
-- `*.csv`: Submission files with recommendations
-- 'sample_submission.csv': Sample of user IDs to give our recommendation and be tested on Kaggle
+`interactions_train.csv`: User-book interaction data  
+`items.csv`: Book metadata (title, author, subject, publisher, ISBN) [Given as a database]  
+`items_augmented.csv`: Enriched metadata using the Google Books API  
+`cf_scores.npy`, `tfidf_scores.npy`, `bert_scores.npy`: Precomputed similarity scores [With changes over time for bert_scores.npy]  
+`candidate_pairs.csv`: Top 50 book candidates per user for reranking  
+`xgb_cold_*.json`: Cold-start XGBoost models with tuned hyperparameters  
+`*.csv`: Submission files with recommendations  
+`sample_submission.csv`: Sample of user IDs to give our recommendation and be tested on Kaggle  
 
 ---
 
