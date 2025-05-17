@@ -5,8 +5,8 @@ Our objective was to build a personalized recommendation system that suggests bo
 
 ## Final Score
 
-**Best Submission MAP@10:** `0.1516`  
-**Top Ranked Hybrid Model:** `hybrid_coldtuned_025_025_050.csv`
+**Best submission MAP@10:** `0.1516`  
+**Top ranked hybrid model:** `hybrid_coldtuned_025_025_050.csv`
 
 ---
 
