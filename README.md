@@ -10,7 +10,7 @@ Our objective was to build a personalized recommendation system that suggests bo
 
 ---
 
-## Project Structure
+## Project structure
 
 `interactions_train.csv`: User-book interaction data  
 `items.csv`: Book metadata (title, author, subject, publisher, ISBN) [Given as a database]  
@@ -23,15 +23,15 @@ Our objective was to build a personalized recommendation system that suggests bo
 
 ---
 
-## Summary of the Approach
+## Summary of the approach
 
-### 1. **Candidate Generation**
+### 1. **Candidate generation**
 I generate top-50 candidate books for each user using:
 - Collaborative Filtering (CF)
 - TF-IDF content similarity on titles + subjects
 - BERT-based embeddings (MiniLM)
 
-### 2. **Blended Hybrid Score**
+### 2. **Blended hybrid score**
 I combine the 3 models using a weighted sum:
 - BERT: 50%
 - TF-IDF: 25%
@@ -39,7 +39,7 @@ I combine the 3 models using a weighted sum:
 
 These weights were tuned empirically based on offline MAP@10 validation and Kaggle leaderboard scores.
 
-### 3. **Feature Engineering**
+### 3. **Feature engineering**
 For each user-item candidate pair, I compute 13 features including:
 - Score + rank from CF, TF-IDF, BERT
 - User activity and item popularity
@@ -47,14 +47,14 @@ For each user-item candidate pair, I compute 13 features including:
 - Title/subject metadata lengths
 - Average CF score and click rate
 
-### 4. **Segmented Ranking Models**
+### 4. **Segmented ranking models**
 I split users into:
 - **Cold users:** fewer than 10 interactions
 - **Heavy users:** 10+ interactions
 
-A separate **XGBoost Ranker** model is trained for each segment using pairwise ranking (`rank:pairwise`).
+A separate **XGBoost ranker** model is trained for each segment using pairwise ranking (`rank:pairwise`).
 
-### 5. **Model Tuning**
+### 5. **Model tuning**
 I tuned hyperparameters on cold users with grid search:
 - `n_estimators`: 100, 200
 - `max_depth`: 3, 5
@@ -64,7 +64,7 @@ The best performing model was `xgb_cold_n200_d5_lr10.json`.
 
 ---
 
-## Offline Evaluation
+## Offline evaluation
 
 Offline MAP@10 reached **0.5119** using held-out interactions for validation and reranking 50 candidates per user.
 
@@ -72,7 +72,7 @@ Offline MAP@10 reached **0.5119** using held-out interactions for validation and
 
 ## Enhancements with API
 
-### Enriched Metadata (API)
+### Enriched metadata (API)
 Using Google Books API and ISBN, I retrieved:
 - Descriptions
 - Categories
@@ -80,7 +80,7 @@ Using Google Books API and ISBN, I retrieved:
 
 These were embedded (MiniLM) and used in some BERT-based similarity scores.
 
-### Streamlit App
+### Streamlit app
 A web UI was built using Streamlit for demo and exploration:
 - Live recommendations
 - Book search
@@ -90,7 +90,7 @@ A web UI was built using Streamlit for demo and exploration:
 
 ---
 
-## Files for Submission
+## Files for submission
 
 | File                                 | Description                                                                 |
 |--------------------------------------|-----------------------------------------------------------------------------|
