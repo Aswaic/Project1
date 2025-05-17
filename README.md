@@ -3,7 +3,7 @@
 This project is part of the class Data science and machine learning at UNIL with Professor Michalis Vlachos.
 Our objective was to build a personalized recommendation system that suggests books to users based on their reading history and metadata using collaborative filtering and advanced machine learning.
 
-## Final Score
+## Final score
 
 **Best submission MAP@10:** `0.1516`  
 **Top ranked hybrid model:** `hybrid_coldtuned_025_025_050.csv`
