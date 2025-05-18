@@ -116,6 +116,141 @@ A sample of user-item interactions joined with metadata:
 | 4456 | 8581  | Ashes falling for the sky    | Albin Michel  | 2023-06-23 |
 |  142 | 1964  | La page blanche              | Delcourt      | 2023-03-23 |
 
+## Evaluation of Recommendations
+
+To evaluate how well the recommendation system aligns with user interests, we selected five users and compared their top-10 recommended books with their actual reading history.
+
+A prediction is considered **good** if it was previously interacted with by the user; otherwise, it's considered **bad**. This provides a qualitative measure of how personalized and relevant the results are.
+
+---
+
+### User 2226
+
+**Clicked History:**
+- Histoire des peurs alimentaires : du Moyen Age à l'aube du XXe siècle
+- Le patrimoine culinaire suisse
+- La condition immigrée : les ouvriers italiens en Suisse
+
+| Rank | Recommended Title                                                                                   | Match |
+|------|------------------------------------------------------------------------------------------------------|-------|
+| 1    | La condition immigrée : les ouvriers italiens en Suisse                                              | ✅ Good |
+| 2    | Histoire des peurs alimentaires : du Moyen Age à l'aube du XXe siècle                                | ✅ Good |
+| 3    | Le patrimoine culinaire suisse                                                                       | ✅ Good |
+| 4    | L'immigration en Suisse : cinquante ans d'entrouverture                                              | ❌ Bad  |
+| 5    | Histoire religieuse de la Suisse : la présence des catholiques                                       | ❌ Bad  |
+| 6    | La migration italienne dans la Suisse d'après-guerre                                                 | ❌ Bad  |
+| 7    | Le syndicalisme suisse : histoire politique de l'Union syndicale : 1880-1980                         | ❌ Bad  |
+| 8    | Femmes et discriminations en Suisse : le poids de l'histoire, XVIe - début XXe siècle                | ❌ Bad  |
+| 9    | Les Suisses et l'environnement : une histoire du rapport à la nature, du XVIIIe siècle à nos jours  | ❌ Bad  |
+| 10   | Monstres, démons et merveilles à la fin du Moyen Age                                                 | ❌ Bad  |
+
+**Summary:** 3 / 10 recommendations were in the user's history.
+
+---
+
+### User 2177
+
+**Clicked History:**
+- La faïence de Nevers : 1585–1900
+- Le parfum : des origines à nos jours
+
+| Rank | Recommended Title                                                                 | Match |
+|------|------------------------------------------------------------------------------------|-------|
+| 1    | La faïence de Nevers : 1585–1900                                                   | ✅ Good |
+| 2    | Le parfum : des origines à nos jours                                               | ✅ Good |
+| 3    | La Belle Époque : la France de 1900 à 1914                                         | ❌ Bad  |
+| 4    | La famille en France à l'époque moderne (XVIe–XVIIIe siècle)                       | ❌ Bad  |
+| 5    | La révolution matérielle : une histoire de la consommation                         | ❌ Bad  |
+| 6    | Journal de Jean Héroard                                                            | ❌ Bad  |
+| 7    | L'éclaireur                                                                         | ❌ Bad  |
+| 8    | Histoire de la France religieuse                                                   | ❌ Bad  |
+| 9    | Le mariage et l'amour en France : de la Renaissance à la Révolution               | ❌ Bad  |
+| 10   | Le temps des féminismes                                                            | ❌ Bad  |
+
+**Summary:** 2 / 10 recommendations were in the user's history.
+
+---
+
+### User 4236
+
+**Clicked History:**
+- Hound dog
+- Culottées : des femmes qui ne font que ce qu'elles veulent
+- Le château des animaux
+- De cape et de crocs : l'intégrale
+
+| Rank | Recommended Title                                                   | Match |
+|------|----------------------------------------------------------------------|-------|
+| 1    | De cape et de crocs : l'intégrale                                   | ✅ Good |
+| 2    | Le château des animaux                                              | ✅ Good |
+| 3    | L'Odyssée                                                           | ❌ Bad  |
+| 4    | Culottées : des femmes qui ne font que ce qu'elles veulent         | ✅ Good |
+| 5    | La naissance des Dieux                                              | ❌ Bad  |
+| 6    | Aya de Yopougon                                                     | ❌ Bad  |
+| 7    | Bienvenue                                                           | ❌ Bad  |
+| 8    | Giant                                                               | ❌ Bad  |
+| 9    | On la trouvait plutôt jolie                                         | ❌ Bad  |
+| 10   | Lancelot                                                            | ❌ Bad  |
+
+**Summary:** 3 / 10 recommendations were in the user's history.
+
+---
+
+### User 6558
+
+**Clicked History:**
+- L'énigme de la chambre 622 : roman
+- 100 idées pour mieux gérer les troubles de l'attention
+- Troubles de l'attention avec ou sans hyperactivité
+- La disparition de Stephanie Mailer : roman
+- Plan d'études romand : cycle 1
+
+| Rank | Recommended Title                                                                                     | Match |
+|------|--------------------------------------------------------------------------------------------------------|-------|
+| 1    | TDAH à l'école : petite histoire d'une inclusion                                                       | ✅ Good |
+| 2    | La disparition de Stephanie Mailer : roman                                                             | ✅ Good |
+| 3    | Troubles de l'attention avec ou sans hyperactivité                                                     | ✅ Good |
+| 4    | 100 idées pour mieux gérer les troubles de l'attention                                                 | ✅ Good |
+| 5    | L'énigme de la chambre 622 : roman                                                                     | ✅ Good |
+| 6    | Plan d'études romand : cycle 1                                                                         | ✅ Good |
+| 7    | Plan d'études romand : cycle 2                                                                         | ❌ Bad  |
+| 8    | Le TDAH chez l'enfant et l'adolescent                                                                  | ❌ Bad  |
+| 9    | Pratiques pédagogiques et TDAH : pistes de compréhension et outils pratiques                           | ❌ Bad  |
+| 10   | Plan d'études romand : cycle 3                                                                         | ❌ Bad  |
+
+**Summary:** 6 / 10 recommendations were in the user's history.
+
+---
+
+### User 5491
+
+**Clicked History:**
+- Histoire du monde au XIXe siècle
+- L'époque contemporaine : 1770–1914
+- L'émergence du monde ouvrier en Suisse au XIXe siècle
+
+| Rank | Recommended Title                                                                             | Match |
+|------|------------------------------------------------------------------------------------------------|-------|
+| 1    | Histoire du monde au XIXe siècle                                                               | ✅ Good |
+| 2    | L'émergence du monde ouvrier en Suisse au XIXe siècle                                          | ✅ Good |
+| 3    | L'époque contemporaine : 1770–1914                                                             | ✅ Good |
+| 4    | Histoire de la Suisse et des Suisses dans la marche du monde                                  | ❌ Bad  |
+| 5    | La transformation du monde : une histoire globale du XIXe siècle                               | ❌ Bad  |
+| 6    | Histoire et combats : mouvement ouvrier et socialisme en Suisse                                | ❌ Bad  |
+| 7    | Histoire du tourisme en Suisse au XIXe siècle                                                  | ❌ Bad  |
+| 8    | L'histoire du monde se fait en Asie                                                            | ❌ Bad  |
+| 9    | Histoire économique de la Suisse au XXe siècle                                                 | ❌ Bad  |
+| 10   | Deux siècles de luttes : une brève histoire du mouvement socialiste et ouvrier en Suisse       | ❌ Bad  |
+
+**Summary:** 3 / 10 recommendations were in the user's history.
+
+---
+
+## Observations
+
+- The recommender system successfully retrieved previously interacted items in many cases.
+- In highly specialized domains (e.g., TDAH, graphic novels), recommendations were more accurate.
+- Broader historical themes sometimes led to generic or tangential results.
 
 ## Summary of the approach
 
