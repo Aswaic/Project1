@@ -23,6 +23,94 @@ Our objective was to build a personalized recommendation system that suggests bo
 
 ---
 
+## Exploratory Data Analysis (EDA)
+This section provides an overview and insights from the interactions and items metadata, helping guide modeling decisions for recommendation.
+
+### Dataset Overview
+
+| Metric                     | Value        |
+|----------------------------|--------------|
+| Interactions rows          | 87,047       |
+| Items metadata rows        | 15,291       |
+| Unique users               | 7,838        |
+| Unique items               | 15,109       |
+
+### Interactions Data
+
+| Column | Description     | Type     |
+|--------|------------------|----------|
+| `u`    | User ID          | `int64`  |
+| `i`    | Item ID          | `int64`  |
+| `t`    | UNIX Timestamp   | `float64`|
+
+**Sample Interaction Data:**
+
+      u      i             t
+0  4456   8581  1.687541e+09
+1   142   1964  1.679585e+09
+2   362   3705  1.706872e+09
+3  1809  11317  1.673533e+09
+4  4384   1323  1.681402e+09
+
+**Items Metadata Summary:**
+
+| Column        | Description             | Missing Values |
+|---------------|-------------------------|----------------|
+| Title         | Book title              | 0              |
+| Author        | Author name             | 2,653          |
+| ISBN Valid    | ISBN codes              | 723            |
+| Publisher     | Publishing organization | 25             |
+| Subjects      | Thematic keywords       | 2,223          |
+| i             | Item ID                 | 0              |
+
+---
+
+Sample Items:
+                                               Title               Author               Publisher
+0  Classification décimale universelle       NaN                  Ed du CEFAL
+1  Les interactions dans l’enseignement…  Cicurel, Francine       Didier
+...
+
+### Monthly Interactions Over Time
+
+User activity peaked early in 2023 and declined sharply in late 2024.
+
+![Monthly Interactions](./Monthly%20Interactions%20Over%20Time.png)
+
+### Interactions per Item (log-scaled)
+
+Most items received few interactions, indicating a long-tail distribution.
+
+![Interactions per Item](./Interactions%20per%20Item%20(log-scaled).png)
+
+### Interactions per User (log-scaled)
+
+The majority of users interacted with only a few books.
+
+![Interactions per User](./Interactions%20per%20User%20(log-scaled).png)
+
+### Top 10 Publishers
+
+Gallimard and Flammarion dominate the dataset.
+
+![Top Publishers](./Top%2010%20Publishers.png)
+
+### Subjects Word Cloud
+
+Common topics include “Bandes dessinées”, “Histoire”, “France”, and “Philosophie”.
+
+![Subjects Word Cloud](./Subject%20Word%20Cloud.png)
+
+---
+
+Example Merged Data
+A sample of user-item interactions joined with metadata:
+
+      u      i                        Title               Publisher        datetime
+0  4456   8581  Ashes falling for the sky           Albin Michel    2023-06-23
+1   142   1964  La page blanche                     Delcourt        2023-03-23
+...
+
 ## Summary of the approach
 
 ### 1. **Candidate generation**
