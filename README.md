@@ -252,6 +252,18 @@ A prediction is considered **good** if it was previously interacted with by the 
 - In highly specialized domains (e.g., TDAH, graphic novels), recommendations were more accurate.
 - Broader historical themes sometimes led to generic or tangential results.
 
+### Recommendation Performance (Precision@10 and Recall@10)
+
+| Method           | Precision@10 | Recall@10 |
+|------------------|--------------|-----------|
+| User-User CF     | 0.0061       | 0.0612    |
+| Item-Item CF     | 0.0050       | 0.0498    |
+| Hybrid Model     | 0.0740       | 0.7405    |
+
+We evaluated the recommendation quality of three different models using a leave-one-out cross-validation strategy. For each user, one held-out item was used as ground truth, and Precision@10 and Recall@10 were computed over the top-10 recommended books.
+
+Traditional collaborative filtering methods (User-User CF and Item-Item CF) showed limited effectiveness due to the sparsity and cold-start nature of the dataset. In contrast, our hybrid model, which combines CF, TF-IDF, and BERT-based similarity scores with tuned weights, significantly outperformed the baselines. The hybrid model achieved a Precision@10 of 0.0740 and an exceptionally high Recall@10 of 0.7405, confirming its ability to recover relevant books that users were likely to interact with.
+
 ## Summary of the approach
 
 ### 1. **Candidate generation**
