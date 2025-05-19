@@ -2,7 +2,7 @@
 
 This project is part of the class Data Science and Machine Learning at UNIL with Professor Michalis Vlachos.
 Our objective was to build a personalized recommendation system that suggests books to users based on their reading history and metadata using collaborative filtering and advanced machine learning.
-This project is done by Uriel Ortega and Dorian Steiner, under the team name EPFL_HUBLOT.
+This project is done by Uriel Ortega and Dorian Steiner, under the team name "EPFL_HUBLOT".
 ## Final score
 
 **Best submission MAP@10:** `0.1516`  
