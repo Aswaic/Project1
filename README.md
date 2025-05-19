@@ -254,11 +254,10 @@ A prediction is considered **good** if it was previously interacted with by the 
 
 ### Recommendation Performance (Precision@10 and Recall@10)
 
-| Method           | Precision@10 | Recall@10 |
-|------------------|--------------|-----------|
-| User-User CF     | 0.0061       | 0.0612    |
-| Item-Item CF     | 0.0050       | 0.0498    |
-| Hybrid Model     | 0.0740       | 0.7405    |
+|                  | User-User CF | Item-Item CF | Hybrid Model         |
+|------------------|--------------|--------------|----------------------|
+| Precision@10     | 0.0061       | 0.0050       | 0.0740               |
+| Recall@10        | 0.0612       | 0.0498       | 0.7405               |
 
 We evaluated the recommendation quality of three different models using a leave-one-out cross-validation strategy. For each user, one held-out item was used as ground truth, and Precision@10 and Recall@10 were computed over the top-10 recommended books.
 
