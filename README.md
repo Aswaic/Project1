@@ -1,6 +1,6 @@
 ## Library Recommender Competition
 
-This project is part of the class Data science and machine learning at UNIL with Professor Michalis Vlachos.
+This project is part of the class Data Science and Machine Learning at UNIL with Professor Michalis Vlachos.
 Our objective was to build a personalized recommendation system that suggests books to users based on their reading history and metadata using collaborative filtering and advanced machine learning.
 
 ## Final score
@@ -118,7 +118,7 @@ A sample of user-item interactions joined with metadata:
 
 ## Evaluation of Recommendations
 
-To evaluate how well the recommendation system aligns with user interests, we selected five users and compared their top-10 recommended books with their actual reading history.
+To evaluate how well the recommendation system aligns with user interests, we selected five users randomly and compared their top-10 recommended books with their actual reading history.
 
 A prediction is considered **good** if it was previously interacted with by the user; otherwise, it's considered **bad**. This provides a qualitative measure of how personalized and relevant the results are.
 
@@ -207,7 +207,7 @@ A prediction is considered **good** if it was previously interacted with by the 
 
 | Rank | Recommended Title                                                                                     | Match |
 |------|--------------------------------------------------------------------------------------------------------|-------|
-| 1    | TDAH à l'école : petite histoire d'une inclusion                                                       | ✅ Good |
+| 1    | TDAH à l'école : petite histoire d'une inclusion                                                       | ❌ Bad |
 | 2    | La disparition de Stephanie Mailer : roman                                                             | ✅ Good |
 | 3    | Troubles de l'attention avec ou sans hyperactivité                                                     | ✅ Good |
 | 4    | 100 idées pour mieux gérer les troubles de l'attention                                                 | ✅ Good |
@@ -218,7 +218,7 @@ A prediction is considered **good** if it was previously interacted with by the 
 | 9    | Pratiques pédagogiques et TDAH : pistes de compréhension et outils pratiques                           | ❌ Bad  |
 | 10   | Plan d'études romand : cycle 3                                                                         | ❌ Bad  |
 
-**Summary:** 6 / 10 recommendations were in the user's history.
+**Summary:** 5 / 10 recommendations were in the user's history.
 
 ---
 
@@ -249,7 +249,6 @@ A prediction is considered **good** if it was previously interacted with by the 
 ## Observations
 
 - The recommender system successfully retrieved previously interacted items in many cases.
-- In highly specialized domains (e.g., TDAH, graphic novels), recommendations were more accurate.
 - Broader historical themes sometimes led to generic or tangential results.
 
 ### Recommendation Performance (Precision@10 and Recall@10)
@@ -266,13 +265,13 @@ Traditional collaborative filtering methods (User-User CF and Item-Item CF) show
 ## Summary of the approach
 
 ### 1. **Candidate generation**
-I generate top-50 candidate books for each user using:
+We generate top-50 candidate books for each user using:
 - Collaborative Filtering (CF)
 - TF-IDF content similarity on titles + subjects
 - BERT-based embeddings (MiniLM)
 
 ### 2. **Blended hybrid score**
-I combine the 3 models using a weighted sum:
+We combine the 3 models using a weighted sum:
 - BERT: 50%
 - TF-IDF: 25%
 - CF: 25%
@@ -280,7 +279,7 @@ I combine the 3 models using a weighted sum:
 These weights were tuned empirically based on offline MAP@10 validation and Kaggle leaderboard scores.
 
 ### 3. **Feature engineering**
-For each user-item candidate pair, I compute 13 features including:
+For each user-item candidate pair, we compute 13 features including:
 - Score + rank from CF, TF-IDF, BERT
 - User activity and item popularity
 - Token overlap between user’s past subjects and the item
@@ -288,14 +287,14 @@ For each user-item candidate pair, I compute 13 features including:
 - Average CF score and click rate
 
 ### 4. **Segmented ranking models**
-I split users into:
+We split users into:
 - **Cold users:** fewer than 10 interactions
 - **Heavy users:** 10+ interactions
 
 A separate **XGBoost ranker** model is trained for each segment using pairwise ranking (`rank:pairwise`).
 
 ### 5. **Model tuning**
-I tuned hyperparameters on cold users with grid search:
+We tuned hyperparameters on cold users with grid search:
 - `n_estimators`: 100, 200
 - `max_depth`: 3, 5
 - `learning_rate`: 0.05, 0.1
@@ -313,7 +312,7 @@ Offline MAP@10 reached **0.5119** using held-out interactions for validation and
 ## Enhancements with API
 
 ### Enriched metadata (API)
-Using Google Books API and ISBN, I retrieved:
+Using Google Books API and ISBN, we retrieved:
 - Descriptions
 - Categories
 - Ratings
@@ -344,12 +343,3 @@ A web UI was built using Streamlit for demo and exploration:
 | `interactions_train.csv`           | User-book interaction data                                                  |
 
 ---
-
-## Technologies
-
-- Python 3.11
-- NumPy / Pandas / TQDM
-- XGBoost
-- MiniLM (for embeddings)
-- Google Books API (for data augmentation)
-- Streamlit (UI demo)
