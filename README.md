@@ -266,9 +266,9 @@ Traditional collaborative filtering methods (User-User CF and Item-Item CF) show
 
 ### 1. **Candidate generation**
 We generate top-50 candidate books for each user using:
-- Collaborative Filtering (CF)
-- TF-IDF content similarity on titles + subjects
-- BERT-based embeddings (MiniLM)
+- Collaborative Filtering (CF): Looks at what similar users liked.If User A and User B have similar reading histories, books liked by B but not yet seen by A are recommended to A
+- TF-IDF content similarity on titles + subjects: Looks at the words in book titles and subjects. Books are turned into a “bag of words.” Rare but important words are given more weight.
+- BERT-based embeddings (MiniLM): Uses a deep learning model to understand the meaning of the text, not just the words.Turns book titles/subjects into vectors (embeddings) and finds other books with similar meanings, even if the words are different.
 
 ### 2. **Blended hybrid score**
 We combine the 3 models using a weighted sum:
@@ -291,7 +291,7 @@ We split users into:
 - **Cold users:** fewer than 10 interactions
 - **Heavy users:** 10+ interactions
 
-A separate **XGBoost ranker** model is trained for each segment using pairwise ranking (`rank:pairwise`).
+A separate **XGBoost ranker** model is trained for each segment using pairwise ranking (`rank:pairwise`). XGBoost is a machine learning algorithm that builds many small decision trees and combines them to make very accurate predictions.
 
 ### 5. **Model tuning**
 We tuned hyperparameters on cold users with grid search:
@@ -343,3 +343,5 @@ A web UI was built using Streamlit for demo and exploration:
 | `interactions_train.csv`           | User-book interaction data                                                  |
 
 ---
+
+### Youtube Video Link: https://youtu.be/_Oq4lu5kXLk
